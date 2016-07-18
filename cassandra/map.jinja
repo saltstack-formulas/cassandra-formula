@@ -1,0 +1,7 @@
+{% set cassandra = salt['pillar.get']('cassandra', {
+    'lookup': salt['grains.filter_by']({
+        'Debian': {
+            'pkg': 'cassandra',
+        },
+    }),
+}, merge=True) %}
