@@ -1,10 +1,11 @@
 cassandra:
   series: 37x
-  cluster_name: Test Cluster
-  authenticator: AllowAllAuthenticator
-  listen_address: localhost
-  rpc_address: localhost
-  seeds:
-    - 127.0.0.1
-  endpoint_snitch: SimpleSnitch
 
+  conf:
+    cluster_name: Test Cluster
+    authenticator: AllowAllAuthenticator
+    listen_address: localhost
+    rpc_address: localhost
+    seeds:
+      - 127.0.0.1
+    endpoint_snitch: SimpleSnitch

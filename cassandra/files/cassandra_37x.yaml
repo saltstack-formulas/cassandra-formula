@@ -8,7 +8,7 @@
 
 # The name of the cluster. This is mainly used to prevent machines in
 # one logical cluster from joining another.
-cluster_name: '{{ cassandra.cluster_name }}'
+cluster_name: '{{ cassandra.conf.cluster_name }}'
 
 # This defines the number of tokens randomly assigned to this node on the ring
 # The more tokens, relative to other nodes, the larger the proportion of data
@@ -99,7 +99,7 @@ batchlog_replay_throttle_in_kb: 1024
 #   users. It keeps usernames and hashed passwords in system_auth.credentials table.
 #   Please increase system_auth keyspace replication factor if you use this authenticator.
 #   If using PasswordAuthenticator, CassandraRoleManager must also be used (see below)
-authenticator: {{ cassandra.authenticator }}
+authenticator: {{ cassandra.conf.authenticator }}
 
 # Authorization backend, implementing IAuthorizer; used to limit access/provide permissions
 # Out of the box, Cassandra provides org.apache.cassandra.auth.{AllowAllAuthorizer,
@@ -388,7 +388,7 @@ seed_provider:
       parameters:
           # seeds is actually a comma-delimited list of addresses.
           # Ex: "<ip1>,<ip2>,<ip3>"
-          - seeds: "{{ ','.join(cassandra.seeds) }}"
+          - seeds: "{{ ','.join(cassandra.conf.seeds) }}"
 
 # For workloads with more data than can fit in memory, Cassandra's
 # bottleneck will be reads that need to fetch data from
@@ -523,7 +523,7 @@ ssl_storage_port: 7001
 # you can specify which should be chosen using listen_interface_prefer_ipv6. If false the first ipv4
 # address will be used. If true the first ipv6 address will be used. Defaults to false preferring
 # ipv4. If there is only one address it will be selected regardless of ipv4/ipv6.
-listen_address: {{ cassandra.listen_address }}
+listen_address: {{ cassandra.conf.listen_address }}
 # listen_interface: eth0
 # listen_interface_prefer_ipv6: false
 
@@ -598,7 +598,7 @@ start_rpc: false
 # you can specify which should be chosen using rpc_interface_prefer_ipv6. If false the first ipv4
 # address will be used. If true the first ipv6 address will be used. Defaults to false preferring
 # ipv4. If there is only one address it will be selected regardless of ipv4/ipv6.
-rpc_address: {{ cassandra.rpc_address }}
+rpc_address: {{ cassandra.conf.rpc_address }}
 # rpc_interface: eth1
 # rpc_interface_prefer_ipv6: false
 
@@ -840,7 +840,7 @@ cross_node_timeout: false
 #
 # You can use a custom Snitch by setting this to the full class name
 # of the snitch, which will be assumed to be on your classpath.
-endpoint_snitch: {{ cassandra.endpoint_snitch }}
+endpoint_snitch: {{ cassandra.conf.endpoint_snitch }}
 
 # controls how often to perform the more expensive part of host score
 # calculation

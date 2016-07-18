@@ -1,7 +1,7 @@
-Cassandra
+cassandra-formula
 ===============
 
-Formula to install Cassandra.
+Formula to install and configure Cassandra.
 
 
 .. note::
