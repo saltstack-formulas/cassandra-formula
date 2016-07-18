@@ -1,4 +1,4 @@
-cassandra
+Cassandra
 ===============
 
 Formula to install Cassandra.
@@ -20,4 +20,10 @@ Available states
 -----------
 
 Installs Cassandra.
+
+
+``cassandra.config``
+-----------
+
+Configures Cassandra.
 
