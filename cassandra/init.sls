@@ -2,7 +2,7 @@
 
 cassandra:
   pkg.installed:
-    - name: {{ cassandra.lookup.pkg }}
+    - name: {{ cassandra.pkg }}
 
   service.running:
     - name: cassandra
@@ -12,7 +12,7 @@ cassandra:
 
   pkgrepo.managed:
     - humanname: Cassandra
-    - name: deb http://www.apache.org/dist/cassandra/debian 37x main
+    - name: deb http://www.apache.org/dist/cassandra/debian {{ cassandra.series }} main
     - file: /etc/apt/sources.list.d/cassandra.list
     - keyid: 0353B12C
     - keyserver: pgp.mit.edu

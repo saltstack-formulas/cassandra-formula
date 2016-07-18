@@ -1,11 +1,10 @@
 cassandra:
   series: 37x
   cluster_name: Test Cluster
-  authenticator: PasswordAuthenticator
-  listen_address: 1.2.3.4
-  rpc_address: 1.2.3.4
+  authenticator: AllowAllAuthenticator
+  listen_address: localhost
+  rpc_address: localhost
   seeds:
     - 127.0.0.1
-    - 1.2.3.5
   endpoint_snitch: SimpleSnitch
-  
+

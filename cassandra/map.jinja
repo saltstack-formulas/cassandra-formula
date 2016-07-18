@@ -1,7 +1,17 @@
-{% set cassandra = salt['pillar.get']('cassandra', {
-    'lookup': salt['grains.filter_by']({
-        'Debian': {
-            'pkg': 'cassandra',
-        },
-    }),
-}, merge=True) %}
+{## start with defaults from defaults.yaml ##}
+{% import_yaml "cassandra/defaults.yaml" as default_settings %}
+
+{##
+Setup variables using grain['os_family'] based logic, only add key:values here
+that differ from whats in defaults.yaml
+##}
+{% set os_family_map = salt['grains.filter_by']({
+    'Debian': {
+      'pkg': 'cassandra',
+    },
+  }, grain="os_family", merge=salt['pillar.get']('cassandra:lookup'))
+%}
+
+{% do default_settings.cassandra.update(os_family_map) %}
+
+{% set cassandra = salt['pillar.get']('cassandra', default=default_settings.cassandra, merge=True) %}
