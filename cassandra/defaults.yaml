@@ -2,6 +2,8 @@ cassandra:
   series: 37x
 
   conf:
+    dc: dc1
+    rack: rack1
     cluster_name: Test Cluster
     authenticator: AllowAllAuthenticator
     listen_address: localhost
@@ -9,3 +11,4 @@ cassandra:
     seeds:
       - 127.0.0.1
     endpoint_snitch: SimpleSnitch
+

@@ -2,6 +2,8 @@ cassandra:
   series: 37x
 
   conf:
+    dc: x
+    rack: y
     cluster_name: Test Cluster
     authenticator: PasswordAuthenticator
     listen_address: 1.2.3.4
@@ -10,3 +12,4 @@ cassandra:
       - 127.0.0.1
       - 1.2.3.5
     endpoint_snitch: SimpleSnitch
+
