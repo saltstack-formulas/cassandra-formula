@@ -14,7 +14,7 @@ cassandra:
     - humanname: Cassandra
     - name: deb http://www.apache.org/dist/cassandra/debian {{ cassandra.series }} main
     - file: /etc/apt/sources.list.d/cassandra.list
-    - keyid: 0353B12C
-    - keyserver: pgp.mit.edu
+    - keyid: {{ cassandra.keyid }}
+    - keyserver: {{ cassandra.keyserver }}
     - require_in:
       - pkg: cassandra

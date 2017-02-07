@@ -1,5 +1,7 @@
 cassandra:
-  series: 37x
+  series: 39x
+  keyserver: keyserver.ubuntu.com
+  keyid: FE4B2BDA
 
   conf:
     dc: dc1
@@ -11,4 +13,3 @@ cassandra:
     seeds:
       - 127.0.0.1
     endpoint_snitch: SimpleSnitch
-
